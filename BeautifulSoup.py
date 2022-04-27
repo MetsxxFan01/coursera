@@ -10,7 +10,6 @@ ctx.verify_mode = ssl.CERT_NONE
 url = input('Enter URL: ')
 num = int(input('Enter count: '))
 pos = int(input('Enter position: '))
-tags = 0
 for tag in tags:
     html = urllib.request.urlopen(url, context=ctx).read()
     load_the_webpage_content = requests.get("http://py4e-data.dr-chuck.net/known_by_Fikret.html")

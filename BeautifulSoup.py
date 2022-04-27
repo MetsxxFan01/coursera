@@ -1,21 +1,33 @@
-import urllib.request
+import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
-url = input('Enter Url: ')
-count = int(input("Enter count: "))
-position = int(input("Enter position:"))
-for i in range(count):
-    html = urllib.request.urlopen(url).read()
-    soup = BeautifulSoup(html)
+import ssl
+import requests
 
-    tags = soup('a')
-    s = []
-    t = []
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+url = input('Enter - ')
+count_number = int(input('Enter count: '))
+position_number = int(input('Enter position: ')) -1
+count1 = 0
+"""http://py4e-data.dr-chuck.net/known_by_Fikret.html"""
+
+def parse_website(url, position_number):     
+    url = tag[position_number ].get('href')
+    i = 0
     for tag in tags:
-        x = tag.get('href', None)
-        s.append(x)
-        y = tag.text
-        t.append(y)
-    
-    print(s[position-1])
-    print(t[position-1])
-    url = s[position-1]
+        i += 1
+        if i == position_number:
+            return tag.get('href', None)
+
+while count_number < count1:
+    print('Retrieving: ', url)
+    enter_website = parse_website(url, position_number)
+    count1 = count_number + 1
+    tags = soup('a')
+    name = tags[position_number].contents[0]
+    html = urllib.request.urlopen(url, context=ctx).read()
+    soup = BeautifulSoup(html,'html.parser')
+
+print(name)

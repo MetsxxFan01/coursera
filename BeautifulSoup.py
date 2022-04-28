@@ -13,7 +13,7 @@ position = int(input('Enter position: '))
 
 load_the_webpage_content = requests.get(url)
 
-for tag in range(count):
+for tag in tags(range(count-1):
     html = urllib.request.urlopen(url, context=ctx).read()
     soup = BeautifulSoup(html, 'html.parser')
     tags = soup.find_all('a')

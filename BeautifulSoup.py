@@ -13,7 +13,7 @@ pos = int(input('Enter position: '))
 html = urllib.request.urlopen(url, context=ctx).read()
 load_the_webpage_content = requests.get("http://py4e-data.dr-chuck.net/known_by_Fikret.html")
 soup = BeautifulSoup(html, 'html.parser')
-for tag in soup.find_all('a'):
+for tag in (range(3,4)):
     tags = soup('a')
 while_loop = 5
 while while_loop > 0:

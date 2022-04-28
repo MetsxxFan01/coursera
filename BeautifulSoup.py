@@ -7,27 +7,19 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-url = input('Enter - ')
-count_number = int(input('Enter count: '))
-position_number = int(input('Enter position: ')) -1
-count1 = 0
-"""http://py4e-data.dr-chuck.net/known_by_Fikret.html"""
+url = input('Enter URL: ')
+count = int(input('Enter count: '))
+position = int(input('Enter position: '))
 
-def parse_website(url, position_number):     
-    url = tag[position_number ].get('href')
-    i = 0
-    for tag in tags:
-        i += 1
-        if i == position_number:
-            return tag.get('href', None)
+load_the_webpage_content = requests.get(url)
 
-while count_number < count1:
-    print('Retrieving: ', url)
-    enter_website = parse_website(url, position_number)
-    count1 = count_number + 1
-    tags = soup('a')
-    name = tags[position_number].contents[0]
+for tag in range(count):
     html = urllib.request.urlopen(url, context=ctx).read()
-    soup = BeautifulSoup(html,'html.parser')
-
-print(name)
+    soup = BeautifulSoup(html, 'html.parser')
+    tags = soup.find_all('a')
+    url = tags[position - 1].a['href']
+    
+    while_loop = 5
+while while_loop > 0:
+    while_loop = while_loop -1
+print('Retrieving: ', url)

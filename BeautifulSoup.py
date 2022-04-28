@@ -11,11 +11,12 @@ url = input('Enter URL: ')
 num = int(input('Enter count: '))
 pos = int(input('Enter position: '))
 html = urllib.request.urlopen(url, context=ctx).read()
-load_the_webpage_content = requests.get("http://py4e-data.dr-chuck.net/known_by_Fikret.html")
+load_the_webpage_content = requests.get(url)
 soup = BeautifulSoup(html, 'html.parser')
-for tag in (range(3,4)):
-    tags = soup('a')
-while_loop = 5
+tags = soup.findall('a')
+for tag in soup.find_all('li'):
+    print('%-10s : %s' % (tag.string, tag.a['href']))
+    while_loop = 5
 while while_loop > 0:
     while_loop = while_loop -1
-print('Retrieving: ', tag)
+    print('Retrieving: ', tag)

@@ -13,7 +13,7 @@ pos = int(input('Enter position: '))
 html = urllib.request.urlopen(url, context=ctx).read()
 load_the_webpage_content = requests.get(url)
 soup = BeautifulSoup(html, 'html.parser')
-tags = soup.findall('a')
+tags = soup.find_all('li')
 for tag in soup.find_all('li'):
     print('%-10s : %s' % (tag.string, tag.a['href']))
     while_loop = 5

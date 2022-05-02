@@ -10,7 +10,7 @@
     
 import json
 
-with open("equipment.json") as file:
+with open("log.txt") as file:
 	data = json.load(file)
 
 print("Equipment data has been successfully retrieved.") #comment the code above and than uncomment it to have the code above work

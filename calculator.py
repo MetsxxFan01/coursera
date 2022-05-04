@@ -8,6 +8,8 @@ class Calculator:
         self.window.resizable(0,0)
         self.window.title("Calculator")
         
+        self.display_frame = self.create_display_frame()
+        
     def run(self):
         self.window.mainloop()
         
